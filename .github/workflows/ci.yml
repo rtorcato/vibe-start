@@ -19,8 +19,6 @@ jobs:
 
             - name: Install pnpm
               uses: pnpm/action-setup@v4
-              with:
-                  version: 9
 
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v4
@@ -30,6 +28,9 @@ jobs:
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
+
+            - name: Type check
+              run: pnpm run typecheck
 
             - name: Run Biome checks
               run: pnpm run check
