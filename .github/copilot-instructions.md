@@ -1,4 +1,6 @@
 <!-- Instructions for AI assistants including GitHub Copilot, Claude, and other coding AI tools -->
+<!-- Claude: This file serves as your project configuration and skills system -->
+<!-- Claude also uses .claude_instructions for dedicated configuration -->
 
 # Vibe-Start AI Coding Instructions
 
@@ -97,6 +99,98 @@ pnpm build        # Production build
 - **Maintainability**: Write code that's easy to understand and modify
 
 ### When Making Suggestions
+1. Always check that suggestions align with Biome formatting rules
+2. Ensure TypeScript strict mode compatibility
+3. Include appropriate test cases for new functionality
+4. Use modern JavaScript/TypeScript features when beneficial
+5. Maintain consistency with existing codebase patterns
+
+## AI Skills & Automated Workflows
+
+### Code Generation Templates
+
+#### TypeScript Function Template
+```typescript
+/**
+ * [Brief description of function purpose]
+ * @param [paramName] - [Parameter description]
+ * @returns [Return value description]
+ * @throws [Error conditions]
+ */
+export function [functionName]([params]: [types]): [ReturnType] {
+  // Input validation
+  if ([validation]) {
+    throw new Error('[descriptive error message]');
+  }
+  
+  // Implementation
+  const result = [implementation];
+  
+  return result;
+}
+```
+
+#### Comprehensive Test Template
+```typescript
+describe('[Component/Function Name]', () => {
+  describe('[specific method/behavior]', () => {
+    it('should [expected behavior] when [condition]', () => {
+      // Arrange
+      const input = [test data];
+      
+      // Act
+      const result = [function call];
+      
+      // Assert
+      expect(result).toBe([expected]);
+    });
+
+    it('should handle edge case: [specific edge case]', () => {
+      // Edge case test
+    });
+
+    it('should throw error when [invalid condition]', () => {
+      expect(() => [function call]).toThrow('[expected error]');
+    });
+  });
+});
+```
+
+#### Error Handling Pattern
+```typescript
+type Result<T, E = Error> = 
+  | { success: true; data: T }
+  | { success: false; error: E };
+
+export function [safeFunctionName](): Result<[DataType]> {
+  try {
+    const data = [implementation];
+    return { success: true, data };
+  } catch (error) {
+    return { 
+      success: false, 
+      error: error instanceof Error ? error : new Error(String(error))
+    };
+  }
+}
+```
+
+### Multi-Platform AI Integration
+- **VS Code Copilot**: Uses this file for context and suggestions
+- **Claude**: Reads this as primary project configuration and skills reference
+- **Cursor**: Combines this with .cursorrules for comprehensive AI assistance
+- **Consistency**: All platforms follow the same patterns and standards
+
+### Automated Quality Checks
+Before any code suggestion, ensure:
+1. ✅ TypeScript strict mode compliance
+2. ✅ Biome formatting rules followed
+3. ✅ Tests included for new functionality
+4. ✅ JSDoc comments for public APIs
+5. ✅ Error handling implemented
+6. ✅ Path mapping used for imports (@/*)
+
+## Multi-Editor Support
 1. Always check that suggestions align with Biome formatting rules
 2. Ensure TypeScript strict mode compatibility
 3. Include appropriate test cases for new functionality

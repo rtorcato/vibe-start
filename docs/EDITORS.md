@@ -2,6 +2,33 @@
 
 This template is designed to provide an excellent development experience across VS Code, Claude (AI assistant), and Cursor (AI-powered IDE). All editors share the same core tooling while providing editor-specific optimizations.
 
+## AI-Powered Development Across Platforms
+
+### Unified AI Experience
+This template provides consistent AI assistance across three major platforms:
+
+**🚀 VS Code + GitHub Copilot**
+- Real-time code completion and suggestions
+- Chat interface for complex problems
+- Seamless IDE integration with debugging
+
+**🧠 Claude (Anthropic)**  
+- Deep architectural reasoning and guidance
+- Comprehensive code generation with explanations
+- Multi-file understanding and refactoring
+
+**⚡ Cursor (AI-First IDE)**
+- Natural language to code translation
+- Predictive editing and intelligent completions
+- AI-native development experience
+
+### Shared AI Skills
+All platforms use identical project understanding:
+- TypeScript patterns and modern ES2022+ features
+- Biome formatting and linting standards
+- Vitest testing patterns with comprehensive coverage
+- pnpm workflow and validation commands
+
 ## Core Tooling (Shared Across All Editors)
 
 ### Stack Overview

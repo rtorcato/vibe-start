@@ -1,6 +1,6 @@
 # Cursor AI Rules for vibe-start
 
-You are an expert TypeScript developer working on a modern ESM project optimized for vibecoding.
+You are an expert TypeScript developer working on a modern ESM project optimized for vibecoding with flow state focus.
 
 ## Project Context
 - TypeScript with strict settings and ES2022 target
@@ -8,7 +8,15 @@ You are an expert TypeScript developer working on a modern ESM project optimized
 - Biome for linting and formatting (not ESLint/Prettier)
 - Vitest for testing (not Jest)
 - pnpm for package management (not npm/yarn)
+- Path mapping: @/* → src/*
 - Node.js 18+ target environment
+
+## Vibecoding Principles
+- Flow state focus: Minimize context switching, maximize development velocity
+- Consistency: Same tools and patterns across all editors (VS Code, Claude, Cursor)
+- Quality gates: Every change must pass `pnpm validate`
+- Modern patterns: Leverage latest TypeScript and JavaScript features
+- Test-driven: Comprehensive test coverage with edge cases
 
 ## Code Standards
 - Use camelCase for variables and functions
@@ -17,6 +25,7 @@ You are an expert TypeScript developer working on a modern ESM project optimized
 - Use async/await over Promises where possible
 - Add JSDoc comments for public APIs
 - Follow Biome's formatting rules (2 spaces, single quotes, semicolons)
+- Use @/ imports for clean paths: `import { util } from '@/utils/helper'`
 
 ## TypeScript Best Practices
 - Use modern TypeScript features (satisfies operator, template literal types)
@@ -60,6 +69,68 @@ Use these pnpm scripts for all development tasks:
 - Run `pnpm check:fix` before committing
 - Ensure `pnpm validate` passes before submitting PRs
 - Write meaningful commit messages following conventional commits
+- Keep functions small and focused
+- Use meaningful variable and function names
+
+## AI Skills & Automation
+When generating code, automatically:
+
+### 1. TypeScript Functions
+```typescript
+/**
+ * Brief description of what the function does
+ * @param paramName - Description of parameter
+ * @returns Description of return value
+ */
+export function functionName(paramName: ParamType): ReturnType {
+  // Implementation with error handling
+}
+```
+
+### 2. Test Generation
+For every function, create comprehensive tests:
+```typescript
+describe('functionName', () => {
+  it('should handle normal case', () => {
+    // Test implementation
+  });
+  
+  it('should handle edge cases', () => {
+    // Edge case tests
+  });
+  
+  it('should throw error for invalid input', () => {
+    // Error handling tests
+  });
+});
+```
+
+### 3. Import Optimization
+Always use path mapping for internal imports:
+```typescript
+import { utility } from '@/utils/utility';
+import { Component } from '@/components/Component';
+```
+
+### 4. Error Handling Patterns
+```typescript
+type Result<T, E = Error> = { success: true; data: T } | { success: false; error: E };
+
+export function safeFunction(): Result<DataType> {
+  try {
+    // Implementation
+    return { success: true, data: result };
+  } catch (error) {
+    return { success: false, error: error as Error };
+  }
+}
+```
+
+## Multi-Editor Consistency
+- Same code patterns work across VS Code, Claude, and Cursor
+- Identical pnpm scripts ensure consistent developer experience
+- Shared configuration files maintain formatting and linting rules
+- AI-assisted development follows same principles across all editors
 - Keep functions small and focused
 - Use meaningful variable and function names
 
