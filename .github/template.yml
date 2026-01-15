@@ -1,0 +1,18 @@
+name: "TypeScript Vibecoding Project"
+description: "A modern TypeScript project setup with Biome, pnpm, and Vitest for optimal development experience across VS Code, Claude, and Cursor"
+labels:
+- typescript
+- vitest
+- biome
+- pnpm
+- vibecoding
+- template
+files:
+- "**/*"
+exclude:
+- "node_modules/**"
+- "dist/**"
+- "coverage/**"
+- ".git/**"
+- "pnpm-lock.yaml"
+- "IMPLEMENTATION.md"

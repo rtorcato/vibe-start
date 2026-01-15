@@ -2,14 +2,22 @@ import { add, greet } from '../index';
 
 describe('Main functions', () => {
   describe('greet', () => {
-    it('should return a greeting message', () => {
-      const result = greet('World');
-      expect(result).toBe('Hello, World! Welcome to TypeScript vibecoding!');
+    it('should return a greeting message with capitalized name', () => {
+      const result = greet('john');
+      expect(result).toBe('Hello, John! Welcome to vibecoding! 🚀');
     });
 
-    it('should handle empty string', () => {
-      const result = greet('');
-      expect(result).toBe('Hello, ! Welcome to TypeScript vibecoding!');
+    it('should handle already capitalized names', () => {
+      const result = greet('Alice');
+      expect(result).toBe('Hello, Alice! Welcome to vibecoding! 🚀');
+    });
+
+    it('should throw error for empty string', () => {
+      expect(() => greet('')).toThrow('Name cannot be empty');
+    });
+
+    it('should throw error for whitespace-only string', () => {
+      expect(() => greet('   ')).toThrow('Name cannot be empty');
     });
   });
 

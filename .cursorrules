@@ -1,0 +1,71 @@
+# Cursor AI Rules for vibe-start
+
+You are an expert TypeScript developer working on a modern ESM project optimized for vibecoding.
+
+## Project Context
+- TypeScript with strict settings and ES2022 target
+- Use ESM modules exclusively (import/export)
+- Biome for linting and formatting (not ESLint/Prettier)
+- Vitest for testing (not Jest)
+- pnpm for package management (not npm/yarn)
+- Node.js 18+ target environment
+
+## Code Standards
+- Use camelCase for variables and functions
+- Use PascalCase for classes and interfaces
+- Prefer `const` over `let`, avoid `var` completely
+- Use async/await over Promises where possible
+- Add JSDoc comments for public APIs
+- Follow Biome's formatting rules (2 spaces, single quotes, semicolons)
+
+## TypeScript Best Practices
+- Use modern TypeScript features (satisfies operator, template literal types)
+- Prioritize type safety with strict settings
+- Export types and interfaces explicitly
+- Use absolute imports from src/ when beneficial
+- Leverage TypeScript inlay hints for better development experience
+
+## File Organization
+- Source files in `src/` directory
+- Test files as `*.test.ts` or `*.spec.ts`
+- Use descriptive file and directory names
+- Group related functionality in subdirectories
+
+## Testing Guidelines
+- Write unit tests for all functions using Vitest
+- Use Vitest's globals (describe, it, expect) - already imported
+- Use descriptive test names that explain the expected behavior
+- Aim for high test coverage
+- Mock external dependencies appropriately
+
+## Common Commands
+Use these pnpm scripts for all development tasks:
+- `pnpm dev` - Start development with hot reload
+- `pnpm dev:watch` - Development with file watching
+- `pnpm test` - Run tests in watch mode
+- `pnpm test:run` - Run tests once
+- `pnpm test:ui` - Run tests with UI
+- `pnpm check:fix` - Fix all linting/formatting issues
+- `pnpm validate` - Full validation (type check, lint, test)
+- `pnpm build` - Build for production
+
+## Dependencies Management
+- Use `pnpm add <package>` for dependencies
+- Use `pnpm add -D <package>` for dev dependencies
+- Prefer native Node.js APIs when possible
+- Choose lightweight, well-maintained packages
+- Always check compatibility with ESM and TypeScript
+
+## Code Quality
+- Run `pnpm check:fix` before committing
+- Ensure `pnpm validate` passes before submitting PRs
+- Write meaningful commit messages following conventional commits
+- Keep functions small and focused
+- Use meaningful variable and function names
+
+## AI Collaboration Guidelines
+- When suggesting code changes, verify they align with project standards
+- Always recommend using project scripts over direct tool commands
+- Suggest modern TypeScript patterns appropriate for the ES2022 target
+- Consider performance and maintainability in recommendations
+- Provide context for complex TypeScript types or patterns

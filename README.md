@@ -1,18 +1,50 @@
 # Vibe-Start
 
-A modern TypeScript project setup with Biome, pnpm, and Vitest for optimal vibecoding experience.
+A modern TypeScript project setup with Biome, pnpm, and Vitest for optimal vibecoding experience across VS Code, Claude, and Cursor.
+
+## 🎯 Using This Template
+
+### Quick Start
+1. **Click "Use this template"** button on GitHub
+2. **Create your new repository** from the template
+3. **Clone your new repository** locally
+4. **Run the setup script**:
+   ```bash
+   node scripts/template-setup.mjs "my-project" "My awesome project description" "Your Name" "your@email.com"
+   ```
+5. **Install dependencies**: `pnpm install`
+6. **Start coding**: `pnpm dev`
+
+### Manual Setup
+If you prefer manual setup:
+1. Update [package.json](package.json) with your project name, description, and author
+2. Update this README with your project information
+3. Remove [IMPLEMENTATION.md](IMPLEMENTATION.md) and [scripts/template-setup.mjs](scripts/template-setup.mjs)
+4. Start building your awesome project!
 
 ## 🚀 Features
 
-- **TypeScript** - Static typing with ESM modules
+- **TypeScript** - Static typing with ESM modules and path mapping
 - **Biome** - Ultra-fast linting and formatting (replaces ESLint + Prettier)
 - **Vitest** - Fast native testing framework with TypeScript support
 - **pnpm** - Efficient package manager with better dependency management
+- **Multi-Editor Support** - Optimized for VS Code, Claude, and Cursor
 - **GitHub Actions** - CI/CD pipeline optimized for modern toolchain
 - **GitHub Templates** - Issue and PR templates
 
 ## 📦 Installation
 
+### For New Projects (Template Users)
+```bash
+# 1. Use this template on GitHub or clone your new project
+# 2. Run template setup (recommended)
+node scripts/template-setup.mjs "my-project" "My project description" "Your Name" "your@email.com"
+
+# 3. Install dependencies
+pnpm install
+```
+
+### For Contributing to Template
 ```bash
 # Install pnpm globally if you haven't already
 npm install -g pnpm
@@ -73,6 +105,16 @@ pnpm test:ui
 - Hot reload in development
 - Watch mode for tests
 - Instant formatting and linting
+
+## 🎯 Multi-Editor Support
+
+This project is optimized for three development environments:
+
+- **VS Code** - Complete IDE experience with debugging, tasks, and extensions
+- **Claude** - AI-assisted development with project-aware suggestions  
+- **Cursor** - AI-powered editor with natural language programming
+
+All editors share the same core tooling (TypeScript, Biome, Vitest, pnpm) for consistent development experience. See [docs/EDITORS.md](docs/EDITORS.md) for detailed setup and usage guides.
 
 ## 🔍 Code Quality
 

@@ -37,3 +37,18 @@ This is a TypeScript project set up for vibecoding with Biome, pnpm, and Vitest 
 - Use conventional commits
 - Submit pull requests for code review
 - Ensure CI/CD passes before merging
+
+## AI Assistant Guidelines
+- Always use the project's pnpm scripts rather than suggesting direct tool usage
+- When suggesting code changes, ensure they pass: `pnpm run validate`
+- For testing, use Vitest's globals (describe, it, expect) - already imported
+- Suggest modern TypeScript patterns (satisfies operator, template literal types)
+- Prioritize type safety with exactOptionalPropertyTypes and noUncheckedIndexedAccess
+- Use ESM imports/exports exclusively, never CommonJS
+- Recommend Biome for all formatting and linting needs
+
+## Multi-Editor Support
+- This project supports VS Code, Claude, and Cursor
+- All editors use the same core tooling: TypeScript, Biome, Vitest, pnpm
+- Consistent development experience across all editors via pnpm scripts
+- Editor-specific configurations enhance each tool's unique capabilities

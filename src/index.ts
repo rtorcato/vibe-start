@@ -2,13 +2,18 @@
  * Main entry point for the TypeScript vibecoding project
  */
 
+import { capitalize } from '@/utils/string';
+
 /**
  * Greets a person with a personalized message
  * @param name - The name of the person to greet
  * @returns A greeting message
  */
 export function greet(name: string): string {
-  return `Hello, ${name}! Welcome to TypeScript vibecoding!`;
+  if (!name.trim()) {
+    throw new Error('Name cannot be empty');
+  }
+  return `Hello, ${capitalize(name)}! Welcome to vibecoding! 🚀`;
 }
 
 /**

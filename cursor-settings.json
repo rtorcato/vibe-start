@@ -1,0 +1,38 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.inlayHints.enabled": "on",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "biome.enabled": true,
+  "biome.lsp.bin": "pnpm exec biome",
+  "cursor.cpp.disabledLanguages": ["plaintext"],
+  "cursor.chat.defaultModel": "claude-3.5-sonnet",
+  "cursor.general.enableFeatureFlags": true,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/dist/**": true,
+    "**/coverage/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/coverage": true,
+    "pnpm-lock.yaml": true
+  },
+  "vitest.enable": true,
+  "vitest.commandLine": "pnpm exec vitest"
+}
