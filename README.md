@@ -17,7 +17,10 @@ A modern TypeScript project setup with Biome, pnpm, and Vitest for optimal vibec
 # Install pnpm globally if you haven't already
 npm install -g pnpm
 
-# Install dependencies
+# Quick setup (recommended)
+./scripts/setup.mjs
+
+# OR manual installation
 pnpm install
 ```
 
@@ -26,6 +29,11 @@ pnpm install
 Start development mode:
 ```bash
 pnpm dev
+```
+
+Start with auto-restart on file changes:
+```bash
+pnpm dev:watch
 ```
 
 Build the project:
@@ -47,6 +55,24 @@ Run tests with UI:
 ```bash
 pnpm test:ui
 ```
+
+## ⚡ Vibecoding Features
+
+**VS Code Integration:**
+- Press `Ctrl+Shift+P` → "Tasks: Run Task" for quick actions
+- Integrated debugging with F5
+- Auto-format on save with Biome
+- Test explorer integration
+
+**Quality Gates:**
+- Pre-commit hooks with validation
+- Auto-fix on save
+- Type checking integration
+
+**Fast Feedback:**
+- Hot reload in development
+- Watch mode for tests
+- Instant formatting and linting
 
 ## 🔍 Code Quality
 
