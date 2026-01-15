@@ -1,0 +1,28 @@
+{
+  "name": "vibe-start",
+  "description": "Modern TypeScript template optimized for AI-assisted vibecoding with multi-editor support (VS Code, Claude, Cursor)",
+  "version": "1.0.0",
+  "skillsFramework": ".ai/skills/",
+  "rules": [
+    "Flow state focus: Minimize context switching, maximize development velocity",
+    "Zero configuration: Works out of the box with sensible defaults",
+    "Modern patterns: Latest TypeScript 5.3+ and ES2022+ features",
+    "Quality gates: Every change must pass 'pnpm validate'",
+    "Multi-editor consistency: Same patterns across VS Code, Claude, and Cursor",
+    "Follow TypeScript strict mode patterns with ES2022+ features",
+    "Use Biome for all linting and formatting (not ESLint/Prettier)",
+    "Write comprehensive tests with Vitest (not Jest)",
+    "Use pnpm scripts exclusively for package management",
+    "Maintain path mapping with @/* → src/* aliases",
+    "Document all public APIs with JSDoc comments",
+    "Prefer async/await over Promises for readability",
+    "Use Result types for proper error handling"
+  ],
+  "goals": [
+    "Provide zero-configuration TypeScript development experience",
+    "Enable seamless AI-assisted development across multiple editors",
+    "Demonstrate modern TypeScript and JavaScript best practices",
+    "Maintain consistent patterns suitable for template usage",
+    "Support comprehensive testing and quality validation"
+  ]
+}

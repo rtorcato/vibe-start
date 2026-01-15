@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "name": "Vitest Testing Patterns",
+    "description": "Comprehensive testing patterns and templates for Vitest",
+    "version": "1.0.0"
+  },
+  "templates": {
+    "testSuite": {
+      "pattern": "describe('{ComponentName}', () => {\n  describe('{specificMethod}', () => {\n    it('should {expectedBehavior} when {condition}', () => {\n      // Arrange\n      const input = {testData};\n      \n      // Act\n      const result = {functionCall};\n      \n      // Assert\n      expect(result).toBe({expected});\n    });\n\n    it('should handle edge case: {specificEdgeCase}', () => {\n      // Edge case implementation\n    });\n\n    it('should throw error when {invalidCondition}', () => {\n      expect(() => {functionCall}).toThrow('{expectedError}');\n    });\n  });\n});",
+      "requirements": [
+        "Use descriptive test names explaining behavior and conditions",
+        "Follow Arrange-Act-Assert pattern",
+        "Include edge cases and error conditions",
+        "Group related tests in describe blocks",
+        "Test both success and failure paths"
+      ]
+    },
+    "asyncTest": {
+      "pattern": "it('should {expectedBehavior} when {asyncCondition}', async () => {\n  // Arrange\n  const {setupData} = {testSetup};\n  \n  // Act\n  const result = await {asyncFunctionCall};\n  \n  // Assert\n  expect(result).toEqual({expectedResult});\n});",
+      "requirements": [
+        "Use async/await for asynchronous operations",
+        "Test both resolved and rejected promises",
+        "Mock external dependencies appropriately",
+        "Handle timeouts and cancellation"
+      ]
+    },
+    "mock": {
+      "pattern": "const mock{ServiceName} = {\n  {methodName}: vi.fn().mockResolvedValue({mockReturn}),\n  {methodName2}: vi.fn().mockRejectedValue(new Error('{errorMessage}')),\n};\n\nbeforeEach(() => {\n  vi.clearAllMocks();\n});",
+      "requirements": [
+        "Use Vitest vi.fn() for mocking",
+        "Mock both success and error scenarios",
+        "Reset mocks between tests",
+        "Use descriptive mock names"
+      ]
+    }
+  },
+  "bestPractices": {
+    "testNaming": {
+      "pattern": "should {action} when {condition}",
+      "examples": [
+        "should return formatted email when input is valid",
+        "should throw error when email is empty",
+        "should handle special characters in names"
+      ]
+    },
+    "testStructure": {
+      "arrange": "Set up test data and mocks",
+      "act": "Execute the function under test", 
+      "assert": "Verify the expected outcome",
+      "cleanup": "Reset mocks and clean up state"
+    },
+    "coverage": {
+      "target": "Aim for high test coverage with meaningful tests",
+      "edgeCases": "Test boundary conditions and edge cases",
+      "errorPaths": "Test all error conditions and exception paths",
+      "integration": "Include integration tests for complex workflows"
+    }
+  },
+  "vitest": {
+    "globals": ["describe", "it", "expect", "beforeEach", "afterEach", "vi"],
+    "matchers": {
+      "equality": "toBe() for primitives, toEqual() for objects",
+      "truthiness": "toBeTruthy(), toBeFalsy(), toBeNull()",
+      "numbers": "toBeGreaterThan(), toBeLessThan(), toBeCloseTo()",
+      "strings": "toMatch(), toContain()",
+      "arrays": "toContain(), toHaveLength()",
+      "errors": "toThrow(), toThrowError()"
+    },
+    "setup": {
+      "config": "vitest.config.ts handles path mapping and globals",
+      "imports": "Globals are automatically available (describe, it, expect)",
+      "mocking": "Use vi.fn(), vi.mock(), vi.spyOn()",
+      "cleanup": "Use beforeEach/afterEach for test isolation"
+    }
+  },
+  "examples": {
+    "functionTest": "describe('validateEmail', () => {\n  it('should return lowercase email when input is valid', () => {\n    // Arrange\n    const email = 'TEST@EXAMPLE.COM';\n    \n    // Act\n    const result = validateEmail(email);\n    \n    // Assert\n    expect(result).toBe('test@example.com');\n  });\n\n  it('should throw error when email is empty', () => {\n    expect(() => validateEmail('')).toThrow('Email cannot be empty');\n  });\n\n  it('should throw error when email format is invalid', () => {\n    expect(() => validateEmail('invalid')).toThrow('Invalid email format');\n  });\n});",
+    "asyncTest": "describe('fetchUser', () => {\n  it('should return user data when id is valid', async () => {\n    // Arrange\n    const mockUser = { id: '1', name: 'John Doe' };\n    const getUserMock = vi.fn().mockResolvedValue(mockUser);\n    \n    // Act\n    const result = await fetchUser('1');\n    \n    // Assert\n    expect(result).toEqual({ success: true, data: mockUser });\n  });\n});"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "name": "Development Workflow Commands",
+    "description": "Standardized pnpm scripts and development workflow",
+    "version": "1.0.0"
+  },
+  "commands": {
+    "development": {
+      "start": {
+        "command": "pnpm dev",
+        "description": "Start development with hot reload using tsx",
+        "usage": "Primary development command for coding sessions"
+      },
+      "watch": {
+        "command": "pnpm dev:watch", 
+        "description": "Development with file watching for changes",
+        "usage": "When you need explicit file watching behavior"
+      }
+    },
+    "testing": {
+      "interactive": {
+        "command": "pnpm test",
+        "description": "Interactive test watching with Vitest",
+        "usage": "Primary testing command during development"
+      },
+      "run": {
+        "command": "pnpm test:run",
+        "description": "Run all tests once and exit",
+        "usage": "CI/CD and validation checks"
+      },
+      "ui": {
+        "command": "pnpm test:ui",
+        "description": "Run tests with interactive UI",
+        "usage": "Visual test debugging and exploration"
+      },
+      "coverage": {
+        "command": "pnpm test:coverage",
+        "description": "Generate test coverage reports",
+        "usage": "Quality analysis and coverage verification"
+      }
+    },
+    "quality": {
+      "fix": {
+        "command": "pnpm check:fix",
+        "description": "Auto-fix all formatting and linting issues",
+        "usage": "Before committing or when cleaning up code"
+      },
+      "validate": {
+        "command": "pnpm validate",
+        "description": "Complete validation pipeline (typecheck + lint + test)",
+        "usage": "REQUIRED before every commit - ensures quality gates"
+      },
+      "typecheck": {
+        "command": "pnpm typecheck",
+        "description": "TypeScript type checking only",
+        "usage": "Isolated type validation without running tests"
+      }
+    },
+    "building": {
+      "build": {
+        "command": "pnpm build",
+        "description": "Production build",
+        "usage": "Preparing for deployment or distribution"
+      },
+      "clean": {
+        "command": "pnpm clean",
+        "description": "Clean build artifacts",
+        "usage": "Reset build state when troubleshooting"
+      }
+    }
+  },
+  "workflows": {
+    "dailyDevelopment": [
+      "pnpm dev - Start development session",
+      "pnpm test - Run tests in watch mode",
+      "pnpm check:fix - Clean up code periodically",
+      "pnpm validate - Before every commit"
+    ],
+    "beforeCommit": [
+      "pnpm validate - MUST pass all quality gates",
+      "git add . - Stage changes", 
+      "git commit -m 'feat: descriptive message' - Commit with conventional format"
+    ],
+    "troubleshooting": [
+      "pnpm clean - Clear build artifacts",
+      "rm -rf node_modules && pnpm install - Reset dependencies",
+      "pnpm typecheck - Isolate TypeScript issues",
+      "pnpm test:run - Check all tests"
+    ]
+  },
+  "quality": {
+    "preCommitHook": {
+      "trigger": "Husky pre-commit hook",
+      "command": "pnpm validate",
+      "requirement": "Must pass before commit is allowed",
+      "enforcement": "Automatic via git hooks"
+    },
+    "validationPipeline": {
+      "steps": [
+        "TypeScript compilation check",
+        "Biome linting and formatting check",
+        "Vitest test execution",
+        "Coverage threshold validation"
+      ],
+      "command": "pnpm validate",
+      "frequency": "Before every commit"
+    }
+  },
+  "aiGuidance": {
+    "rules": [
+      "Always suggest pnpm scripts rather than direct tool usage",
+      "Recommend 'pnpm validate' after any code changes",
+      "Use 'pnpm dev' for development, not 'npm start'",
+      "Reference workflow commands consistently across all platforms"
+    ],
+    "examples": {
+      "good": "Run 'pnpm test' to start testing in watch mode",
+      "bad": "Run 'vitest' directly or 'npm test'"
+    }
+  }
+}

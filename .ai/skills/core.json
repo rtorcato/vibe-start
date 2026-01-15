@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "name": "Core Development Standards",
+    "description": "Fundamental coding standards and patterns for vibe-start",
+    "version": "1.0.0"
+  },
+  "naming": {
+    "variables": "camelCase",
+    "functions": "camelCase", 
+    "classes": "PascalCase",
+    "interfaces": "PascalCase",
+    "types": "PascalCase",
+    "constants": "SCREAMING_SNAKE_CASE",
+    "files": "kebab-case.ts",
+    "directories": "kebab-case",
+    "examples": {
+      "variable": "const userName = 'john';",
+      "function": "function validateEmail() {}",
+      "class": "class UserService {}",
+      "interface": "interface UserData {}",
+      "constant": "const API_BASE_URL = 'https://api.example.com';"
+    }
+  },
+  "imports": {
+    "pathMapping": "Use @/* for src/ imports: import { util } from '@/utils/helper'",
+    "order": ["node modules", "internal modules with @/", "relative imports"],
+    "style": "ESM only - import/export syntax exclusively",
+    "organization": "Biome organizes imports automatically",
+    "examples": {
+      "good": "import { capitalize } from '@/utils/string';\nimport type { User } from '@/types/user';",
+      "bad": "const { capitalize } = require('./utils/string');"
+    }
+  },
+  "formatting": {
+    "tool": "Biome (not ESLint/Prettier)",
+    "tabSize": 2,
+    "insertSpaces": true,
+    "quotes": "single",
+    "semicolons": true,
+    "trailingComma": "es5",
+    "enforcement": "Automatic on save and via pnpm check:fix"
+  },
+  "quality": {
+    "validator": "pnpm validate",
+    "typeChecker": "TypeScript strict mode",
+    "formatter": "Biome",
+    "testRunner": "Vitest",
+    "preCommitHook": "husky",
+    "requirements": [
+      "All code must pass pnpm validate",
+      "TypeScript strict mode compliance",
+      "Comprehensive test coverage",
+      "JSDoc for public APIs"
+    ]
+  },
+  "projectStructure": {
+    "source": "src/",
+    "tests": "**/__tests__/*.test.ts",
+    "config": "Root level configuration files",
+    "documentation": "docs/ directory and README.md",
+    "scripts": "scripts/ for automation and setup"
+  }
+}

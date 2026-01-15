@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "name": "vibe-start AI Framework",
+    "version": "1.0.0", 
+    "description": "Centralized AI skills and configuration for multi-editor vibecoding",
+    "supportedEditors": ["vscode", "claude", "cursor"],
+    "lastUpdated": "2026-01-15"
+  },
+  "project": {
+    "name": "vibe-start",
+    "type": "typescript-template",
+    "stack": {
+      "language": "TypeScript 5.3+",
+      "runtime": "Node.js 18+", 
+      "modules": "ESM",
+      "testing": "Vitest",
+      "linting": "Biome",
+      "packageManager": "pnpm",
+      "buildTool": "tsx"
+    },
+    "principles": [
+      "Flow state focus: Minimize context switching, maximize velocity",
+      "Zero configuration: Works out of the box with sensible defaults",
+      "Modern patterns: Latest TypeScript and JavaScript features",
+      "Quality gates: Every change must pass validation",
+      "Multi-editor consistency: Same behavior across all platforms"
+    ]
+  },
+  "skills": {
+    "core": ".ai/skills/core.json",
+    "typescript": {
+      "functions": ".ai/skills/typescript/functions.json",
+      "interfaces": ".ai/skills/typescript/interfaces.json"
+    },
+    "testing": {
+      "vitest": ".ai/skills/testing/vitest.json"
+    },
+    "workflow": {
+      "commands": ".ai/skills/workflow/commands.json"
+    }
+  },
+  "integration": {
+    "vscode": {
+      "via": ".github/copilot-instructions.md",
+      "references": "All skills through GitHub Copilot context"
+    },
+    "claude": {
+      "via": ".claude/.claude_project",
+      "skillsFramework": ".ai/skills/",
+      "references": "Organized skills through project configuration"
+    },
+    "cursor": {
+      "via": ".cursor/.cursorrules", 
+      "references": "Direct skill file imports for AI behavior"
+    }
+  },
+  "validation": {
+    "command": "pnpm validate",
+    "pipeline": ["typecheck", "lint", "test"],
+    "preCommit": "Required via Husky hooks",
+    "quality": "All AI-generated code must pass validation"
+  },
+  "extensibility": {
+    "adding": "Create new skill files in appropriate categories",
+    "structure": "Follow existing JSON schema with meta, templates, examples",
+    "testing": "Validate across all three editor platforms",
+    "documentation": "Update .ai/README.md with new skill descriptions"
+  }
+}

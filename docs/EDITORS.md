@@ -16,11 +16,13 @@ This template provides consistent AI assistance across three major platforms:
 - Deep architectural reasoning and guidance
 - Comprehensive code generation with explanations
 - Multi-file understanding and refactoring
+- Organized project context in `.claude/` directory
 
 **⚡ Cursor (AI-First IDE)**
 - Natural language to code translation
 - Predictive editing and intelligent completions
 - AI-native development experience
+- Organized configuration in `.cursor/` directory
 
 ### Shared AI Skills
 All platforms use identical project understanding:
@@ -93,8 +95,10 @@ Pre-configured tasks in [.vscode/tasks.json](.vscode/tasks.json):
 - **Chat integration** - Claude 3.5 Sonnet for complex problem-solving
 
 ### Configuration Files
-- [.cursorrules](.cursorrules) - Project context and coding standards for AI
-- [cursor-settings.json](cursor-settings.json) - IDE settings and preferences
+- **[.cursor/](.cursor/)** - Organized Cursor configuration directory
+- **[.cursor/.cursorrules](.cursor/.cursorrules)** - Project context and coding standards for AI
+- **[.cursor/cursor-settings.json](.cursor/cursor-settings.json)** - IDE settings and preferences
+- **[.cursor/README.md](.cursor/README.md)** - Comprehensive Cursor usage guide
 
 ### Best Practices
 1. **Use descriptive prompts** - "Create a utility function that validates email addresses with TypeScript types"
@@ -105,12 +109,17 @@ Pre-configured tasks in [.vscode/tasks.json](.vscode/tasks.json):
 ## Claude Integration
 
 ### Configuration & Setup
-Claude uses the comprehensive instructions in [.github/copilot-instructions.md](.github/copilot-instructions.md) which includes:
+Claude uses dedicated configuration files in the [.claude/](.claude/) directory:
+- **[.claude/claude.md](.claude/claude.md)** - Comprehensive project guide and AI collaboration patterns
+- **[.claude/.claude_project](.claude/.claude_project)** - Project metadata and development rules
+- **Shared configuration** - Also references [.github/copilot-instructions.md](.github/copilot-instructions.md) for multi-platform consistency
+
+This organized structure provides:
 - **Complete project context** - TypeScript stack, tooling, and patterns
-- **Vibe coding principles** - Flow state focus and development velocity
+- **Vibecoding principles** - Flow state focus and development velocity
 - **Code standards** - Biome formatting, naming conventions, and best practices
 - **Development workflow** - pnpm scripts and validation pipeline
-- **AI collaboration guidelines** - How to work effectively with the codebase
+- **AI collaboration guidelines** - Specific patterns for working with Claude
 
 ### Vibe Coding with Claude
 Claude is optimized for "vibecoding" - maintaining flow state through:
@@ -225,6 +234,26 @@ Optimized exclusions prevent unnecessary file watching:
 - Semantic highlighting improves without performance cost
 - Inlay hints provide information without cluttering
 - Auto-imports work quickly with proper TypeScript configuration
+
+## Multi-Editor Consistency
+
+### Organized Configuration Structure
+Each editor has its own organized configuration directory:
+- **VS Code**: `.vscode/` for settings, tasks, and extension recommendations
+- **Claude**: `.claude/` for AI project context and collaboration patterns  
+- **Cursor**: `.cursor/` for AI behavior rules and IDE preferences
+
+### Shared Standards
+- **Core tooling**: Same TypeScript, Biome, Vitest, and pnpm across all platforms
+- **Validation pipeline**: Identical `pnpm validate` ensures consistent quality
+- **Project patterns**: Shared coding standards via `.github/copilot-instructions.md`
+- **Development workflow**: Same scripts and build processes regardless of editor
+
+### Platform-Specific Benefits
+While maintaining consistency, each editor leverages its unique strengths:
+- **VS Code**: Rich debugging, extension ecosystem, integrated Git
+- **Claude**: Deep reasoning, architectural guidance, comprehensive explanations
+- **Cursor**: AI-first development, natural language programming, predictive editing
 
 ---
 

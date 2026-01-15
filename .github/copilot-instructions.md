@@ -1,11 +1,20 @@
 <!-- Instructions for AI assistants including GitHub Copilot, Claude, and other coding AI tools -->
 <!-- Claude: This file serves as your project configuration and skills system -->
-<!-- Claude also uses .claude_instructions for dedicated configuration -->
+<!-- Claude also uses .claude/ directory for dedicated configuration -->
+<!-- All AI systems reference .ai/skills/ for unified patterns and templates -->
 
 # Vibe-Start AI Coding Instructions
 
 ## Project Overview
 This is a TypeScript project set up for vibecoding with Biome, pnpm, and Vitest for optimal development experience.
+
+## Vibecoding Principles
+- **Flow state focus** - Minimize context switching, maximize development velocity
+- **Zero configuration** - Works out of the box with sensible defaults
+- **Modern patterns** - Latest TypeScript 5.3+ and ES2022+ features
+- **Quality gates** - Every change must pass `pnpm validate`
+- **Multi-editor consistency** - Same patterns across VS Code, Claude, and Cursor
+- **AI-first approach** - Optimized for AI-assisted development
 
 ## Development Guidelines
 - Use TypeScript for all source code with ESM modules
@@ -29,16 +38,49 @@ This is a TypeScript project set up for vibecoding with Biome, pnpm, and Vitest 
 - Mock external dependencies
 
 ## Tools & Commands
-- `pnpm check:fix` - Fix all linting and formatting issues
+- `pnpm dev` - Start development with hot reload
+- `pnpm dev:watch` - Development with file watching
+- `pnpm test` - Interactive test watching with Vitest
 - `pnpm test:run` - Run all tests once
-- `pnpm dev` - Start development mode
+- `pnpm test:ui` - Run tests with interactive UI
+- `pnpm test:coverage` - Generate test coverage reports
+- `pnpm check:fix` - Fix all linting and formatting issues
+- `pnpm validate` - Complete validation pipeline
+- `pnpm typecheck` - TypeScript type checking only
 - `pnpm build` - Build for production
+- `pnpm clean` - Clean build artifacts
 
 ## Git Workflow
 - Create feature branches from main
 - Use conventional commits
 - Submit pull requests for code review
 - Ensure CI/CD passes before merging
+
+## AI Skills Framework
+Reference the centralized skills in `.ai/skills/` for all code generation and assistance:
+
+### Skill Categories
+- **Core Standards** (`.ai/skills/core.json`) - Naming conventions, imports, quality gates, project structure
+- **TypeScript Functions** (`.ai/skills/typescript/functions.json`) - Function templates, JSDoc patterns, validation
+- **TypeScript Interfaces** (`.ai/skills/typescript/interfaces.json`) - Interface patterns, type definitions, best practices
+- **Vitest Testing** (`.ai/skills/testing/vitest.json`) - Test structure, mocking, async testing, coverage
+- **Workflow Commands** (`.ai/skills/workflow/commands.json`) - pnpm scripts, development workflow, quality gates
+
+### Code Generation Rules
+When generating code, ALWAYS reference these skills:
+
+1. **Check `.ai/skills/core.json`** for naming conventions and import patterns
+2. **Use `.ai/skills/typescript/functions.json`** templates for new functions with proper JSDoc
+3. **Follow `.ai/skills/typescript/interfaces.json`** patterns for type definitions
+4. **Apply `.ai/skills/testing/vitest.json`** patterns for comprehensive tests
+5. **Reference `.ai/skills/workflow/commands.json`** for correct pnpm script usage
+
+### Quality Standards
+All AI-generated code must:
+- Follow patterns defined in `.ai/skills/core.json`
+- Use TypeScript templates from `.ai/skills/typescript/`
+- Include tests using patterns from `.ai/skills/testing/vitest.json`
+- Pass validation pipeline: `pnpm validate`
 
 ## AI Assistant Guidelines
 - Always use the project's pnpm scripts rather than suggesting direct tool usage

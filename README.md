@@ -28,8 +28,8 @@ If you prefer manual setup:
 - **Biome** - Ultra-fast linting and formatting (replaces ESLint + Prettier)
 - **Vitest** - Fast native testing framework with TypeScript support
 - **pnpm** - Efficient package manager with better dependency management
-- **Claude Vibe Coding** - Optimized AI-assisted development with flow state focus
-- **Multi-Editor Support** - Seamless experience across VS Code, Claude, and Cursor
+- **Centralized AI Skills** - Unified `.ai/skills/` framework for consistent AI behavior across editors
+- **Multi-Editor Support** - Optimized for VS Code, Claude, and Cursor with organized configurations
 - **GitHub Actions** - CI/CD pipeline optimized for modern toolchain
 - **GitHub Templates** - Issue and PR templates
 
@@ -91,7 +91,18 @@ pnpm test:ui
 
 ## ⚡ Vibecoding Features
 
-**Claude AI Integration:**
+**Centralized AI Skills Framework:**
+- **Single source of truth** in `.ai/skills/` directory for all AI assistants
+- **Consistent behavior** across VS Code Copilot, Claude, and Cursor
+- **Organized skills** - Core standards, TypeScript patterns, testing templates, workflow commands
+- **Easy extensibility** - Add new skills in focused categories
+
+**Multi-Editor AI Integration:**
+- **VS Code + GitHub Copilot** - Real-time suggestions with centralized skill patterns
+- **Claude** - Deep project understanding with comprehensive skill framework
+- **Cursor** - AI-first development with unified coding standards
+
+**Quality-Focused Development:**
 - Comprehensive project context and coding standards
 - Flow state focused development with minimal context switching  
 - AI-assisted code generation following project patterns
@@ -116,13 +127,19 @@ pnpm test:ui
 
 ## 🎯 Multi-Editor Support
 
-This project is optimized for three development environments:
+This project provides unified AI-assisted development across three editors:
 
-- **VS Code** - Complete IDE experience with debugging, tasks, and extensions
-- **Claude** - AI-assisted development with project-aware suggestions  
-- **Cursor** - AI-powered editor with natural language programming
+- **VS Code + GitHub Copilot** - Complete IDE experience with AI code suggestions
+- **Claude** - Conversational AI development with deep project understanding  
+- **Cursor** - AI-first editor with natural language programming
 
-All editors share the same core tooling (TypeScript, Biome, Vitest, pnpm) for consistent development experience. See [docs/EDITORS.md](docs/EDITORS.md) for detailed setup and usage guides.
+All editors share:
+- **Same core tooling** (TypeScript, Biome, Vitest, pnpm) for consistent experience
+- **Centralized AI skills** in `.ai/skills/` for uniform behavior
+- **Organized configurations** in dedicated directories (`.vscode/`, `.claude/`, `.cursor/`)
+- **Quality validation** with `pnpm validate` across all platforms
+
+See [docs/EDITORS.md](docs/EDITORS.md) for detailed setup and usage guides.
 
 ## 🔍 Code Quality
 
@@ -177,15 +194,27 @@ pnpm format:check
 ## 🏗️ Project Structure
 
 ```
-├── .github/                 # GitHub templates and workflows
-│   ├── ISSUE_TEMPLATE/     # Issue templates
-│   ├── workflows/          # GitHub Actions
+├── .ai/                    # Centralized AI skills framework
+│   ├── README.md          # AI framework documentation
+│   ├── config.json        # AI configuration metadata
+│   └── skills/            # Organized skill definitions
+│       ├── core.json      # Core coding standards
+│       ├── typescript/    # TypeScript patterns
+│       ├── testing/       # Testing frameworks  
+│       └── workflow/      # Development commands
+├── .claude/               # Claude-specific configuration
+├── .cursor/               # Cursor-specific configuration
+├── .vscode/               # VS Code settings and tasks
+├── .github/               # GitHub templates and workflows
+│   ├── ISSUE_TEMPLATE/    # Issue templates
+│   ├── workflows/         # GitHub Actions
 │   ├── copilot-instructions.md
 │   └── pull_request_template.md
-├── src/                    # Source code
+├── docs/                  # Project documentation
+├── src/                   # Source code
 │   ├── __tests__/         # Test files
 │   └── index.ts           # Main entry point
-├── dist/                   # Compiled JavaScript (generated)
+├── dist/                  # Compiled JavaScript (generated)
 ├── coverage/              # Test coverage reports (generated)
 ├── biome.json            # Biome configuration
 ├── vitest.config.ts      # Vitest configuration

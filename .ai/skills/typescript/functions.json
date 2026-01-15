@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "name": "TypeScript Functions",
+    "description": "Function templates and patterns for TypeScript development",
+    "version": "1.0.0"
+  },
+  "templates": {
+    "basicFunction": {
+      "pattern": "/**\n * {description}\n * @param {paramName} - {paramDescription}\n * @returns {returnDescription}\n * @throws {Error} {errorConditions}\n */\nexport function {functionName}({params}: {types}): {ReturnType} {\n  // Input validation\n  if ({validation}) {\n    throw new Error('{descriptiveError}');\n  }\n  \n  // Implementation\n  const result = {implementation};\n  \n  return result;\n}",
+      "requirements": [
+        "Include comprehensive JSDoc comments",
+        "Use strict TypeScript types for all parameters and return values",
+        "Add input validation with descriptive error messages",
+        "Implement proper error handling",
+        "Use descriptive variable names"
+      ],
+      "example": "/**\n * Validates and formats an email address\n * @param email - Raw email string to validate\n * @returns Formatted email in lowercase\n * @throws {Error} When email format is invalid\n */\nexport function validateEmail(email: string): string {\n  if (!email.trim()) {\n    throw new Error('Email cannot be empty');\n  }\n  \n  const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n  if (!emailRegex.test(email)) {\n    throw new Error('Invalid email format');\n  }\n  \n  return email.toLowerCase().trim();\n}"
+    },
+    "asyncFunction": {
+      "pattern": "/**\n * {description}\n * @param {paramName} - {paramDescription}\n * @returns Promise resolving to {returnDescription}\n * @throws {Error} {errorConditions}\n */\nexport async function {functionName}({params}: {types}): Promise<{ReturnType}> {\n  try {\n    const result = await {asyncOperation};\n    return result;\n  } catch (error) {\n    throw new Error(`{functionName} failed: ${error instanceof Error ? error.message : String(error)}`);\n  }\n}",
+      "requirements": [
+        "Handle async errors properly",
+        "Convert unknown errors to Error instances",
+        "Provide context in error messages",
+        "Use descriptive function names",
+        "Include comprehensive JSDoc"
+      ]
+    },
+    "resultType": {
+      "pattern": "type Result<T, E = Error> = \n  | { success: true; data: T }\n  | { success: false; error: E };",
+      "usage": "Prefer Result types over throwing exceptions for business logic errors",
+      "example": "export async function fetchUser(id: string): Promise<Result<User>> {\n  try {\n    const user = await api.getUser(id);\n    return { success: true, data: user };\n  } catch (error) {\n    return { \n      success: false, \n      error: error instanceof Error ? error : new Error(String(error))\n    };\n  }\n}",
+      "benefits": [
+        "Explicit error handling at type level",
+        "Forces consideration of error cases",
+        "Better composability than exceptions",
+        "Clear success/failure paths"
+      ]
+    }
+  },
+  "bestPractices": {
+    "naming": "Use descriptive verbs: validateEmail, formatPhoneNumber, calculateTotal",
+    "parameters": "Use object destructuring for multiple parameters",
+    "returnTypes": "Always specify explicit return types",
+    "errorHandling": "Use Result types for business logic, throw for programming errors",
+    "documentation": "Include examples in JSDoc for complex functions"
+  }
+}

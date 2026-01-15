@@ -2,6 +2,14 @@
 
 You are an expert TypeScript developer working on a modern ESM project optimized for vibecoding with flow state focus.
 
+**IMPORTANT**: This project uses centralized AI skills in `.ai/skills/` directory:
+- **Core standards**: `.ai/skills/core.json` (naming, imports, quality gates)
+- **TypeScript patterns**: `.ai/skills/typescript/` (functions, interfaces, error handling)
+- **Testing templates**: `.ai/skills/testing/vitest.json` (comprehensive test patterns)
+- **Workflow commands**: `.ai/skills/workflow/commands.json` (pnpm scripts and quality pipeline)
+
+Reference these centralized skills for consistent code generation, testing, and validation patterns.
+
 ## Project Context
 - TypeScript with strict settings and ES2022 target
 - Use ESM modules exclusively (import/export)
@@ -13,9 +21,10 @@ You are an expert TypeScript developer working on a modern ESM project optimized
 
 ## Vibecoding Principles
 - Flow state focus: Minimize context switching, maximize development velocity
-- Consistency: Same tools and patterns across all editors (VS Code, Claude, Cursor)
+- Zero configuration: Works out of the box with sensible defaults
+- Multi-editor consistency: Same tools and patterns across VS Code, Claude, and Cursor
 - Quality gates: Every change must pass `pnpm validate`
-- Modern patterns: Leverage latest TypeScript and JavaScript features
+- Modern patterns: Leverage latest TypeScript 5.3+ and JavaScript features
 - Test-driven: Comprehensive test coverage with edge cases
 
 ## Code Standards
@@ -51,12 +60,15 @@ You are an expert TypeScript developer working on a modern ESM project optimized
 Use these pnpm scripts for all development tasks:
 - `pnpm dev` - Start development with hot reload
 - `pnpm dev:watch` - Development with file watching
-- `pnpm test` - Run tests in watch mode
-- `pnpm test:run` - Run tests once
-- `pnpm test:ui` - Run tests with UI
-- `pnpm check:fix` - Fix all linting/formatting issues
-- `pnpm validate` - Full validation (type check, lint, test)
+- `pnpm test` - Interactive test watching with Vitest
+- `pnpm test:run` - Run all tests once
+- `pnpm test:ui` - Run tests with interactive UI
+- `pnpm test:coverage` - Generate test coverage reports
+- `pnpm check:fix` - Fix all linting and formatting issues
+- `pnpm validate` - Complete validation pipeline
+- `pnpm typecheck` - TypeScript type checking only
 - `pnpm build` - Build for production
+- `pnpm clean` - Clean build artifacts
 
 ## Dependencies Management
 - Use `pnpm add <package>` for dependencies

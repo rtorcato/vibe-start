@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "name": "TypeScript Interfaces and Types",
+    "description": "Interface and type definition patterns for consistent TypeScript code",
+    "version": "1.0.0"
+  },
+  "templates": {
+    "interface": {
+      "pattern": "/**\n * {description}\n */\nexport interface {InterfaceName} {\n  readonly {readonlyProperty}: {type};\n  {requiredProperty}: {type};\n  {optionalProperty}?: {type};\n}",
+      "requirements": [
+        "Use readonly for immutable properties",
+        "Document all interfaces with JSDoc",
+        "Use PascalCase for interface names",
+        "Mark optional properties with ?",
+        "Group related properties together"
+      ],
+      "example": "/**\n * Represents a user in the system\n */\nexport interface User {\n  readonly id: string;\n  readonly createdAt: Date;\n  name: string;\n  email: string;\n  role?: UserRole;\n}"
+    },
+    "type": {
+      "pattern": "/**\n * {description}\n */\nexport type {TypeName} = {definition};",
+      "useCases": [
+        "Union types for state values",
+        "Utility types for transformations", 
+        "Template literal types for constants",
+        "Conditional types for advanced patterns"
+      ],
+      "examples": {
+        "union": "export type Theme = 'light' | 'dark' | 'auto';",
+        "utility": "export type PartialUser = Partial<User>;",
+        "template": "export type EventName = `on${Capitalize<string>}`;",
+        "conditional": "export type ApiResponse<T> = T extends string ? { message: T } : { data: T };"
+      }
+    },
+    "enum": {
+      "pattern": "/**\n * {description}\n */\nexport enum {EnumName} {\n  {VALUE1} = '{value1}',\n  {VALUE2} = '{value2}'\n}",
+      "when": "Use for known, finite sets of related constants",
+      "alternative": "Consider const assertions or union types for better tree-shaking",
+      "example": "/**\n * User roles in the system\n */\nexport enum UserRole {\n  ADMIN = 'admin',\n  USER = 'user',\n  GUEST = 'guest'\n}"
+    }
+  },
+  "bestPractices": {
+    "composition": "Prefer composition over inheritance - use intersection types",
+    "immutability": "Use readonly for data that shouldn't change after creation",
+    "optionality": "Make properties optional only when they can truly be undefined",
+    "naming": "Use descriptive names that reflect the data's purpose",
+    "documentation": "Document complex types with usage examples",
+    "exports": "Always export types and interfaces for reusability"
+  },
+  "patterns": {
+    "configObject": {
+      "description": "Pattern for configuration objects with optional overrides",
+      "example": "interface Config {\n  readonly apiUrl: string;\n  readonly timeout?: number;\n  readonly retries?: number;\n}\n\ntype ConfigInput = Pick<Config, 'apiUrl'> & Partial<Omit<Config, 'apiUrl'>>;"
+    },
+    "discriminatedUnion": {
+      "description": "Type-safe pattern for handling different data shapes",
+      "example": "type ApiResult<T> = \n  | { status: 'success'; data: T }\n  | { status: 'error'; error: string }\n  | { status: 'loading' };"
+    }
+  }
+}
