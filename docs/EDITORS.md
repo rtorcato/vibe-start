@@ -77,17 +77,44 @@ Pre-configured tasks in [.vscode/tasks.json](.vscode/tasks.json):
 
 ## Claude Integration
 
-### GitHub Copilot Instructions
-The [.github/copilot-instructions.md](.github/copilot-instructions.md) file provides:
-- Project context and technology stack
-- Coding standards and best practices
-- Preferred patterns and anti-patterns
-- Multi-editor workflow guidance
+### Configuration & Setup
+Claude uses the comprehensive instructions in [.github/copilot-instructions.md](.github/copilot-instructions.md) which includes:
+- **Complete project context** - TypeScript stack, tooling, and patterns
+- **Vibe coding principles** - Flow state focus and development velocity
+- **Code standards** - Biome formatting, naming conventions, and best practices
+- **Development workflow** - pnpm scripts and validation pipeline
+- **AI collaboration guidelines** - How to work effectively with the codebase
 
-### Effective Usage
-1. **Project-aware suggestions** - Claude understands your TypeScript configuration and tooling
-2. **Consistent code style** - Follows Biome formatting and project conventions
-3. **Modern patterns** - Suggests ES2022+ features and TypeScript best practices
+### Vibe Coding with Claude
+Claude is optimized for "vibecoding" - maintaining flow state through:
+
+1. **Context Awareness**
+   - Understands the entire project structure and conventions
+   - Knows about TypeScript config, Biome rules, and Vitest setup
+   - Follows established patterns without breaking consistency
+
+2. **Development Workflow**
+   - Always suggests using `pnpm` scripts (dev, test, validate, etc.)
+   - Ensures code passes validation before suggesting commits
+   - Provides modern TypeScript patterns and ES2022+ features
+
+3. **Quality Focus**
+   - Suggests comprehensive test coverage with edge cases
+   - Maintains strict TypeScript compliance
+   - Follows Biome formatting automatically
+
+### Effective Claude Usage
+1. **Describe intent clearly** - "Create a utility that validates emails with TypeScript types"
+2. **Reference existing patterns** - Claude understands your codebase and will follow conventions
+3. **Ask for explanations** - Get detailed explanations of complex TypeScript patterns
+4. **Leverage for architecture** - Get guidance on project structure and best practices
+5. **Code reviews** - Ask Claude to review and suggest improvements
+
+### Claude Best Practices
+- **Be specific about requirements** - Include TypeScript types, test requirements, etc.
+- **Ask for complete solutions** - Claude can provide code + tests + documentation
+- **Request explanations** - Understanding complex patterns improves your learning
+- **Validate suggestions** - Always run `pnpm validate` after implementing suggestions
 4. **Testing integration** - Generates Vitest-compatible tests with proper imports
 
 ## Editor-Specific Features

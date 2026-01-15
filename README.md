@@ -1,6 +1,6 @@
-# Vibe-Start
+# --help
 
-A modern TypeScript project setup with Biome, pnpm, and Vitest for optimal vibecoding experience across VS Code, Claude, and Cursor.
+A TypeScript project built with vibe-start template
 
 ## 🎯 Using This Template
 
@@ -28,7 +28,8 @@ If you prefer manual setup:
 - **Biome** - Ultra-fast linting and formatting (replaces ESLint + Prettier)
 - **Vitest** - Fast native testing framework with TypeScript support
 - **pnpm** - Efficient package manager with better dependency management
-- **Multi-Editor Support** - Optimized for VS Code, Claude, and Cursor
+- **Claude Vibe Coding** - Optimized AI-assisted development with flow state focus
+- **Multi-Editor Support** - Seamless experience across VS Code, Claude, and Cursor
 - **GitHub Actions** - CI/CD pipeline optimized for modern toolchain
 - **GitHub Templates** - Issue and PR templates
 
@@ -89,6 +90,13 @@ pnpm test:ui
 ```
 
 ## ⚡ Vibecoding Features
+
+**Claude AI Integration:**
+- Comprehensive project context and coding standards
+- Flow state focused development with minimal context switching  
+- AI-assisted code generation following project patterns
+- Modern TypeScript suggestions with ES2022+ features
+- Test-driven development with comprehensive coverage
 
 **VS Code Integration:**
 - Press `Ctrl+Shift+P` → "Tasks: Run Task" for quick actions

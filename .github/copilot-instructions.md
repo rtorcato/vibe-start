@@ -1,6 +1,6 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+<!-- Instructions for AI assistants including GitHub Copilot, Claude, and other coding AI tools -->
 
-# Vibe-Start Project Instructions
+# Vibe-Start AI Coding Instructions
 
 ## Project Overview
 This is a TypeScript project set up for vibecoding with Biome, pnpm, and Vitest for optimal development experience.
@@ -46,6 +46,62 @@ This is a TypeScript project set up for vibecoding with Biome, pnpm, and Vitest 
 - Prioritize type safety with exactOptionalPropertyTypes and noUncheckedIndexedAccess
 - Use ESM imports/exports exclusively, never CommonJS
 - Recommend Biome for all formatting and linting needs
+
+## Claude Vibe Coding Guidelines
+
+### Project Stack Context
+- **TypeScript 5.3+** with strict settings, ES2022+ target, ESM modules
+- **Biome** for linting/formatting (NOT ESLint/Prettier)
+- **Vitest** for testing (NOT Jest)
+- **pnpm** for package management (NOT npm/yarn)
+- **Path mapping**: `@/*` aliases point to `src/*`
+- **Hot reload**: `tsx` for development execution
+
+### Vibecoding Principles
+- **Flow state focus**: Minimize context switching, maximize development velocity
+- **Consistency**: Same tools and patterns across all editors and environments
+- **Quality gates**: Every change must pass `pnpm validate`
+- **Modern patterns**: Leverage latest TypeScript and JavaScript features
+- **Test-driven**: Comprehensive test coverage with edge cases
+
+### Development Workflow
+Always use these pnpm scripts (never suggest direct tool usage):
+```bash
+pnpm dev          # Hot reload development
+pnpm test         # Interactive test watching
+pnpm check:fix    # Auto-fix all linting/formatting
+pnpm validate     # Complete pipeline (typecheck + lint + test)
+pnpm build        # Production build
+```
+
+### Code Patterns & Standards
+- **Naming**: camelCase variables/functions, PascalCase classes/interfaces
+- **Variables**: `const` > `let`, never `var`
+- **Async**: async/await over Promises
+- **Documentation**: JSDoc for all public APIs
+- **Imports**: Use `@/` paths for clean imports: `import { util } from '@/utils/helper'`
+- **Error handling**: Proper TypeScript error types
+- **Testing**: Descriptive test names, comprehensive edge case coverage
+
+### File Organization
+- Source: `src/` directory with logical subdirectories
+- Tests: `*.test.ts` files in `__tests__/` folders
+- Utils: Group related functionality in focused modules
+- Types: Export interfaces and types explicitly
+
+### AI Collaboration Best Practices
+- **Context awareness**: Understand existing code patterns and follow them
+- **Incremental changes**: Make focused, testable modifications
+- **Explain complexity**: Provide clear explanations for advanced TypeScript patterns
+- **Performance conscious**: Consider bundle size and runtime performance
+- **Maintainability**: Write code that's easy to understand and modify
+
+### When Making Suggestions
+1. Always check that suggestions align with Biome formatting rules
+2. Ensure TypeScript strict mode compatibility
+3. Include appropriate test cases for new functionality
+4. Use modern JavaScript/TypeScript features when beneficial
+5. Maintain consistency with existing codebase patterns
 
 ## Multi-Editor Support
 - This project supports VS Code, Claude, and Cursor
