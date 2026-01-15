@@ -1,6 +1,6 @@
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
-# TypeScript Vibecoding Project Instructions
+# Vibe-Start Project Instructions
 
 ## Project Overview
 This is a TypeScript project set up for vibecoding with Biome, pnpm, and Vitest for optimal development experience.

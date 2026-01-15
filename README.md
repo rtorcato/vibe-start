@@ -1,4 +1,4 @@
-# TypeScript Vibecoding Project
+# Vibe-Start
 
 A modern TypeScript project setup with Biome, pnpm, and Vitest for optimal vibecoding experience.
 
