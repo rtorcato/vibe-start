@@ -40,8 +40,8 @@ node_modules/
 # Optional pnpm cache
 .pnpm
 
-# pnpm lock file
-pnpm-lock.yaml
+# pnpm lock file - commented out to include lock file in repository
+# pnpm-lock.yaml
 
 # Optional eslint cache
 .eslintcache
