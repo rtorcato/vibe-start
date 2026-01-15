@@ -1,9 +1,28 @@
-# Template Setup Script
-# This script helps initialize a new project from the vibe-start template
+/**
+ * Template Setup Script
+ * This script helps initialize a new project from the vibe-start template
+ */
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
+
+// Show help if requested
+if (process.argv.includes('--help') || process.argv.includes('-h')) {
+  console.log('📋 Vibe-Start Template Setup');
+  console.log('');
+  console.log('Usage: node scripts/template-setup.mjs [project-name] [description] [author] [email]');
+  console.log('');
+  console.log('Arguments:');
+  console.log('  project-name    Name of your new project (default: my-project)');
+  console.log('  description     Project description (default: A TypeScript project...)');
+  console.log('  author          Your name (optional)');
+  console.log('  email           Your email (optional)');
+  console.log('');
+  console.log('Example:');
+  console.log('  node scripts/template-setup.mjs "awesome-app" "My awesome TypeScript app" "John Doe" "john@example.com"');
+  process.exit(0);
+}
 
 const projectName = process.argv[2] || 'my-project';
 const projectDescription = process.argv[3] || 'A TypeScript project built with vibe-start template';
@@ -43,12 +62,15 @@ readme = readme.replace(
 
 writeFileSync(readmePath, readme);
 
-// Clean up template-specific files
-try {
-  execSync('rm -f IMPLEMENTATION.md', { stdio: 'ignore' });
-  execSync('rm -f scripts/template-setup.mjs', { stdio: 'ignore' });
-} catch (error) {
-  // Files might not exist, continue
+// Clean up template-specific files (only when not in template repo)
+if (process.env.TEMPLATE_CLEANUP !== 'false') {
+  try {
+    execSync('rm -f IMPLEMENTATION.md', { stdio: 'ignore' });
+    execSync('rm -f TEMPLATE-SETUP.md', { stdio: 'ignore' });
+    execSync('rm -f scripts/template-setup.mjs', { stdio: 'ignore' });
+  } catch (error) {
+    // Files might not exist, continue
+  }
 }
 
 console.log(`✅ Project "${projectName}" initialized successfully!`);
